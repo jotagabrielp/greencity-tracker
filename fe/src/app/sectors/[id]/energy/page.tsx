@@ -36,20 +36,20 @@ export default function EnergyPage() {
   return (
     <AuthGuard>
       <div className="min-h-screen bg-gray-50 p-6">
-        <h1 className="text-2xl font-bold mb-4">Consumo de Energia</h1>
+        <h1 className="text-2xl font-bold mb-4 text-blue-500">Consumo de Energia</h1>
         {energyRecords.length > 0 ? (
           <ul>
             {energyRecords.map((record) => (
               <li key={record.id}>
                 <div className="mb-4">
-                  <p>Consumo: {record.consumption} kWh</p>
-                  <p>Data: {new Date(record.createdAt).toLocaleString()}</p>
+                  <p className='text-muted-foreground'>Consumo: {record.consumption} kWh</p>
+                  <p className='text-muted-foreground'>Data: {new Date(record.createdAt).toLocaleString()}</p>
                 </div>
               </li>
             ))}
           </ul>
         ) : (
-          <p>Nenhum registro de consumo encontrado.</p>
+          <p className='text-muted-foreground'>Nenhum registro de consumo encontrado.</p>
         )}
       </div>
     </AuthGuard>

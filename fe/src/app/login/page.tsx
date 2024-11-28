@@ -3,18 +3,20 @@ import { useState } from 'react';
 import api from '@/lib/api';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
+import { useRouter } from 'next/navigation';
 
 export default function LoginPage() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const router = useRouter();
 
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
     try {
       const response = await api.post('/auth/login', { username, password });
       localStorage.setItem('token', response.data.access_token);
-      alert('Login realizado com sucesso!');
+      router.push('/sectors');
     } catch (err) {
       setError('Falha ao fazer login. Verifique suas credenciais.');
     }

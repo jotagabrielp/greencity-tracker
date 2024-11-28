@@ -36,20 +36,20 @@ export default function WastePage() {
   return (
     <AuthGuard>
       <div className="min-h-screen bg-gray-50 p-6">
-        <h1 className="text-2xl font-bold mb-4">Gestão de Resíduos</h1>
+        <h1 className="text-2xl font-bold mb-4 text-blue-500">Gestão de Resíduos</h1>
         {wasteRecords.length > 0 ? (
           <ul>
             {wasteRecords.map((record) => (
               <li key={record.id}>
                 <div className="mb-4">
-                  <p>Quantidade de Resíduos: {record.wasteCollected} kg</p>
-                  <p>Data: {new Date(record.createdAt).toLocaleString()}</p>
+                  <p className='text-muted-foreground'>Quantidade de Resíduos: {record.wasteCollected} kg</p>
+                  <p className='text-muted-foreground'>Data: {new Date(record.createdAt).toLocaleString()}</p>
                 </div>
               </li>
             ))}
           </ul>
         ) : (
-          <p>Nenhum registro de resíduos encontrado.</p>
+          <p className='text-muted-foreground'>Nenhum registro de resíduos encontrado.</p>
         )}
       </div>
     </AuthGuard>

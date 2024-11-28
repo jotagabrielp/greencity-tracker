@@ -33,27 +33,30 @@ export default function SectorsPage() {
     fetchSectors();
   }, []);
 
-  const handleViewSector = (sectorId: number) => {
-    router.push(`/sectors/${sectorId}`);
+  const handleViewSector = (sectorId: number, sectorType: string) => {
+    router.push(`/sectors/${sectorId}/${sectorType}`);
   };
 
   return (
     <AuthGuard>
       <div className="min-h-screen bg-gray-50 p-6">
-        <h1 className="text-2xl font-bold mb-4">Meus Setores</h1>
+        <h1 className="text-2xl font-bold mb-4 text-blue-400">Meus Setores</h1>
         {sectors.length > 0 ? (
           <ul>
             {sectors.map((sector) => (
               <li key={sector.id} className="mb-4">
                 <div className="flex justify-between items-center">
-                  <span>{sector.name}</span>
-                  <Button onClick={() => handleViewSector(sector.id)}>Ver Detalhes</Button>
+                  <span className='text-muted-foreground'>{sector.name}</span>
+                  <div className='flex gap-2'>
+                    <Button onClick={() => handleViewSector(sector.id, 'energy')}>Ver Consumo</Button>
+                    <Button onClick={() => handleViewSector(sector.id, 'waste')}>Ver Resíduos</Button>
+                  </div>
                 </div>
               </li>
             ))}
           </ul>
         ) : (
-          <p>Nenhum setor encontrado.</p>
+          <p className='text-muted-foreground'>Nenhum setor encontrado.</p>
         )}
         <Button onClick={() => router.push('/sectors/add')}>Adicionar Setor</Button>
       </div>
