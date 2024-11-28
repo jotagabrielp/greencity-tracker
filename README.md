@@ -1,8 +1,8 @@
 EQUIPE
-João Gabriel Pinheiro Ferreira - 2326232
-Thais dos Santos Ventura - 2323725
- Vitor Nascimento dos Santos Costa da Silva - 2326330
- Daniel Viana Mota - 2222836
+João Gabriel Pinheiro Ferreira - 2326232<br/>
+Thais dos Santos Ventura - 2323725<br/>
+ Vitor Nascimento dos Santos Costa da Silva - 2326330<br/>
+ Daniel Viana Mota - 2222836<br/>
 
 Projeto: Green city tracker
 
